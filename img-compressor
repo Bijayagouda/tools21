@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFMagic - Free Online PDF Tools | Convert, Edit, Compress PDFs</title>
+    <meta name="description" content="100+ free PDF tools to convert, edit, compress, merge, split and secure your PDF files online. No installation required.">
+    <meta name="keywords" content="PDF tools, PDF converter, PDF editor, PDF compressor, merge PDF, split PDF, PDF to Word">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png">
+    
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #c1121f;
+            --accent-color: #457b9d;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            background-color: white;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6rem 0 5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-image: url('assets/images/pdf-icon-bg.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-weight: 400;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+        
+        .hero-btn {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card {
+            border: none;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(230, 57, 70, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .tool-desc {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        
+        .category-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: -20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 1.4rem;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .feature-desc {
+            color: var(--gray-color);
+        }
+        
+        .ad-space {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 40px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .how-it-works {
+            background-color: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 0 auto 20px;
+            font-size: 1.2rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(230, 57, 70, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-links h5 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .category-header {
+                margin-bottom: 0;
+                border-radius: 10px;
+            }
+            
+            .tool-card {
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="PDFMagic Logo">
+                PDFMagic
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="pdfToolsDropdown" role="button" data-bs-toggle="dropdown">
+                            PDF Tools
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><h6 class="dropdown-header">Convert PDF</h6></li>
+                            <li><a class="dropdown-item" href="pdf-to-word.html"><i class="fas fa-file-word me-2"></i>PDF to Word</a></li>
+                            <li><a class="dropdown-item" href="pdf-to-excel.html"><i class="fas fa-file-excel me-2"></i>PDF to Excel</a></li>
+                            <li><a class="dropdown-item" href="pdf-to-ppt.html"><i class="fas fa-file-powerpoint me-2"></i>PDF to PowerPoint</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Edit PDF</h6></li>
+                            <li><a class="dropdown-item" href="merge-pdf.html"><i class="fas fa-object-group me-2"></i>Merge PDF</a></li>
+                            <li><a class="dropdown-item" href="split-pdf.html"><i class="fas fa-cut me-2"></i>Split PDF</a></li>
+                            <li><a class="dropdown-item" href="compress-pdf.html"><i class="fas fa-compress-alt me-2"></i>Compress PDF</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="all-tools.html">All Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="premium.html" class="btn btn-primary">Go Premium</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Your Complete PDF Toolkit</h1>
+                    <p class="hero-subtitle">100+ free PDF tools to convert, edit, compress, merge, split and secure your PDF files. No installation required.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#pdf-tools" class="btn btn-light hero-btn">Explore Tools</a>
+                        <a href="pdf-to-word.html" class="btn btn-outline-light hero-btn">Try PDF to Word</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="assets/images/pdf-hero.png" alt="PDF Tools Illustration" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space -->
+    <div class="container">
+        <div class="ad-space">
+            <div>
+                <div class="ad-label">Advertisement</div>
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+                    crossorigin="anonymous"></script>
+                <!-- PDFTools_Top -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                    data-ad-slot="YOUR_AD_SLOT_ID"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Tools Section -->
+    <section class="container py-5" id="pdf-tools">
+        <h2 class="section-title text-center">Popular PDF Tools</h2>
+        
+        <div class="row">
+            <!-- PDF Conversion Tools -->
+            <div class="col-lg-6 mb-5">
+                <div class="category-header">
+                    <h3 class="category-title"><i class="fas fa-exchange-alt me-2"></i> PDF Conversion</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-word"></i>
+                            </div>
+                            <h4 class="tool-name">PDF to Word</h4>
+                            <p class="tool-desc">Convert PDF files to editable Word documents while preserving formatting</p>
+                            <a href="pdf-to-word.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <h4 class="tool-name">PDF to Excel</h4>
+                            <p class="tool-desc">Extract tables from PDF to editable Excel spreadsheets</p>
+                            <a href="pdf-to-excel.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-powerpoint"></i>
+                            </div>
+                            <h4 class="tool-name">PDF to PPT</h4>
+                            <p class="tool-desc">Convert PDF slides to editable PowerPoint presentations</p>
+                            <a href="pdf-to-ppt.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-image"></i>
+                            </div>
+                            <h4 class="tool-name">PDF to JPG</h4>
+                            <p class="tool-desc">Convert PDF pages to high-quality JPG images</p>
+                            <a href="pdf-to-jpg.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PDF Editing Tools -->
+            <div class="col-lg-6 mb-5">
+                <div class="category-header">
+                    <h3 class="category-title"><i class="fas fa-edit me-2"></i> PDF Editing</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-object-group"></i>
+                            </div>
+                            <h4 class="tool-name">Merge PDF</h4>
+                            <p class="tool-desc">Combine multiple PDF files into a single document</p>
+                            <a href="merge-pdf.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h4 class="tool-name">Split PDF</h4>
+                            <p class="tool-desc">Divide a PDF into multiple separate files</p>
+                            <a href="split-pdf.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-compress-alt"></i>
+                            </div>
+                            <h4 class="tool-name">Compress PDF</h4>
+                            <p class="tool-desc">Reduce PDF file size without losing quality</p>
+                            <a href="compress-pdf.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h4 class="tool-name">Protect PDF</h4>
+                            <p class="tool-desc">Add passwords and permissions to your PDF</p>
+                            <a href="protect-pdf.html" class="btn btn-sm btn-outline-primary">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="all-tools.html" class="btn btn-primary px-4">View All 100+ Tools</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Why Choose PDFMagic?</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Secure Processing</h3>
+                        <p class="feature-desc">Your files are processed in your browser and never uploaded to our servers, ensuring complete privacy.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-desc">Our tools use advanced algorithms to process your PDFs quickly, saving you valuable time.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Mobile Friendly</h3>
+                        <p class="feature-desc">Works perfectly on all devices - desktop, tablet, and mobile phones without any app installation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works py-5">
+        <div class="container">
+            <h2 class="section-title text-center">How It Works</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Select Your Tool</h3>
+                        <p>Choose from our wide range of PDF tools that fits your needs - conversion, editing, compression and more.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Upload Your File</h3>
+                        <p>Drag & drop your PDF file or click to browse. Our system supports files up to 50MB in size.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Download Result</h3>
+                        <p>Process your file and download the result instantly. No waiting, no watermarks, no registration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Users Say</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">PDFMagic saved me hours of work! The PDF to Word converter maintains perfect formatting every time.</p>
+                        <div class="testimonial-author">- Sarah K., Content Writer</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">As a student, I use the merge and split tools daily. Fast, reliable, and completely free!</p>
+                        <div class="testimonial-author">- Michael T., University Student</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The best online PDF compressor I've found. Reduced my files by 80% without quality loss.</p>
+                        <div class="testimonial-author">- David R., Graphic Designer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space -->
+    <div class="container">
+        <div class="ad-space">
+            <div>
+                <div class="ad-label">Advertisement</div>
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+                    crossorigin="anonymous"></script>
+                <!-- PDFTools_Bottom -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                    data-ad-slot="YOUR_AD_SLOT_ID"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo-white.png" alt="PDFMagic Logo" height="40" class="me-2">
+                        PDFMagic
+                    </a>
+                    <p>Your complete PDF toolkit with 100+ free online tools to convert, edit, compress and secure your PDF files.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-links">PDF Tools</h5>
+                    <ul>
+                        <li><a href="pdf-to-word.html">PDF to Word</a></li>
+                        <li><a href="pdf-to-excel.html">PDF to Excel</a></li>
+                        <li><a href="merge-pdf.html">Merge PDF</a></li>
+                        <li><a href="split-pdf.html">Split PDF</a></li>
+                        <li><a href="compress-pdf.html">Compress PDF</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-links">Resources</h5>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="api.html">API</a></li>
+                        <li><a href="affiliate.html">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-links">Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-12">
+                    <h5 class="footer-links">Legal</h5>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="dmca.html">DMCA</a></li>
+                        <li><a href="gdpr.html">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright text-center">
+                <p>© 2023 PDFMagic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS -->
+    <script>
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Track tool clicks for analytics
+            document.querySelectorAll('.tool-card a').forEach(link => {
+                link.addEventListener('click', function() {
+                    // In a real implementation, you would send this data to your analytics platform
+                    console.log('Tool clicked:', this.closest('.tool-card').querySelector('.tool-name').textContent);
+                });
+            });
+        });
+    </script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PDFMagic",
+        "url": "https://pdfmagic.com",
+        "description": "100+ free PDF tools to convert, edit, compress, merge, split and secure your PDF files online.",
+        "applicationCategory": "DocumentEditor",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "PDFMagic"
+        }
+    }
+    </script>
+</body>
+</html>
